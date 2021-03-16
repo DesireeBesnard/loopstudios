@@ -46,6 +46,10 @@
     animation: fade-in 300ms ease-in-out forwards;
 }
 
+.fade-in-delay {
+    animation-delay: 300ms;
+}
+
 @Keyframes fade-out {
     from {
       opacity: 1;
@@ -179,18 +183,19 @@ nav ul {
     opacity: 0;
 }
 
-.logo, #btnHamburger, .menu__mobile {
+.logo, #btnHamburger {
     z-index: 2;
 }
 
 .menu__mobile {
     position: fixed;
-    z-index: 2;
+    z-index: -1;
     height: 100vh;
     width: 100vw;
     padding-top: 15%;
     padding-left: 7%;
     font-size: 1.5rem;
+    opacity: 0;
 }
 
 .header__links-mobile {
@@ -212,8 +217,13 @@ nav ul {
 }
 
 @media (max-width: 767.98px) {
+    header {
+        background-image: url(../images/mobile/image-hero.jpg);
+        background-size: cover;
+    }
+    
     .container {
-        padding: 0 1rem;
+        padding: 0 2rem;
     }
     
     .hide__for-mobile {
@@ -222,6 +232,7 @@ nav ul {
 }
 
 @media (min-width: 768px) {
+
     .hide__for-desktop {
         display: none;
     }
@@ -239,6 +250,38 @@ nav ul {
     font-size: 4rem;
     padding: 30px;
 }
+
+@media (max-width: 425px) {
+    header {
+        height: 100vh;
+    }
+    
+    .header__hero p {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 767.98px)  {
+    .header__hero {
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .header__hero {
+        width: 65%;
+    }
+
+    .header__hero p {
+        font-size: 3rem;
+    }
+ }
+
+ @media (min-width: 992px) and (max-width: 1199.98px) {
+    .header__hero p {
+        font-size: 3rem;
+    }
+ }
 
 
 
