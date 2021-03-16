@@ -16,8 +16,12 @@
     display: flex;
 }
 
+.fd-c {
+    flex-direction: column;
+}
+
 .jc-c {
-    justify-items: center;
+    justify-content: center;
 }
 
 .jc-sb {
@@ -96,8 +100,37 @@ nav {
     color: white;
 }
 
+nav ul {
+    margin: 0;
+}
+
 .logo {
     font-size: 1.875rem;
+}
+
+.header__links-desktop {
+    position: relative;
+}
+
+.header__links-desktop:not(:last-child) {
+    margin-right: 2.5rem;
+}
+
+.header__links-desktop::after {
+    content:"";
+    position: absolute;
+    width: 1.875rem;
+    height: 0.175rem;
+    background: white;
+    bottom: -7px;
+    left: 50%;
+    transform: translate(-50%);
+    transition: all 300ms ease-in-out;
+    opacity: 0;
+}
+
+.header__links-desktop:hover::after {
+    animation: fade-in 300ms ease-in-out forwards;
 }
 
 #btnHamburger > span {
@@ -139,50 +172,38 @@ nav {
     z-index: 2;
 }
 
-.header__links {
-    position: relative;
+.menu__mobile {
+    position: fixed;
+    z-index: 2;
+    height: 100vh;
+    width: 100vw;
+    padding-top: 15%;
+    padding-left: 7%;
+    font-size: 1.5rem;
 }
 
-.header__links:not(:last-child) {
-    margin-right: 2.5rem;
+.header__links-mobile {
+    transition: font-weight 300ms ease-in-out, font-size 300ms ease-in-out;
 }
 
-.header__links::after {
-    content:"";
-    position: absolute;
-    width: 1.875rem;
-    height: 0.175rem;
-    background: white;
-    bottom: -7px;
-    left: 50%;
-    transform: translate(-50%);
-    transition: all 300ms ease-in-out;
-    opacity: 0;
-    animation: fade-out 300ms ease-in-out forwards;
+.header__links-mobile:not(:last-child) {
+    margin-bottom: 2.5rem;
 }
 
-.header__links:hover::after {
-    animation: fade-in 300ms ease-in-out forwards;
-}
+.header__links-mobile:hover {
+    text-shadow: 0px 0px 10px #ffffff;
+  }
 
 
 @media (max-width: 991.98px) {
-    #btnHamburger {
-        display: block;
-    }
-    
-    .menu__desktop {
+    .hide__for-mobile {
         display: none;
     }
 }
 
 @media (min-width: 992px) {
-    #btnHamburger {
+    .hide__for-desktop {
         display: none;
-    }
-    
-    .menu__desktop {
-        display: flex;
     }
 }
 
